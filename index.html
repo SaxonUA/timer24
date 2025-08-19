@@ -66,7 +66,15 @@ function getTimeLeftKyiv() {
   const now = new Date();
   const kyiv = new Date(now.toLocaleString("en-US", { timeZone: "Europe/Kyiv" }));
   const end = new Date(kyiv);
-  end.setHours(0, 30, 0, 0); // конец в 00:30:00
+
+  // ставимо сьогоднішні 00:30
+  end.setHours(0, 30, 0, 0);
+
+  // якщо вже пізніше 00:30 — переносимо на завтра
+  if (kyiv > end) {
+    end.setDate(end.getDate() + 1);
+  }
+
   return Math.floor((end - kyiv) / 1000);
 }
 
