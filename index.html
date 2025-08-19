@@ -62,13 +62,13 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/flipclock/0.7.8/flipclock.min.js"></script>
   <script>
-    function getTimeLeftKyiv() {
-      const now = new Date();
-      const kyiv = new Date(now.toLocaleString("en-US", { timeZone: "Europe/Kyiv" }));
-      const end = new Date(kyiv);
-      end.setHours(00, 29, 59, 999);
-      return Math.floor((end - kyiv) / 1000);
-    }
+function getTimeLeftKyiv() {
+  const now = new Date();
+  const kyiv = new Date(now.toLocaleString("en-US", { timeZone: "Europe/Kyiv" }));
+  const end = new Date(kyiv);
+  end.setHours(0, 30, 0, 0); // конец в 00:30:00
+  return Math.floor((end - kyiv) / 1000);
+}
 
     $(function () {
       const flipClock = $('#flip-clock').FlipClock(getTimeLeftKyiv(), {
