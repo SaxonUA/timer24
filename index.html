@@ -68,7 +68,7 @@ function getTimeLeftKyiv() {
   const end = new Date(kyiv);
 
   // ставимо сьогоднішні 00:30
-  end.setHours(0, 30, 0, 0);
+  end.setHours(0, 00, 0, 0);
 
   // якщо вже пізніше 00:30 — переносимо на завтра
   if (kyiv > end) {
